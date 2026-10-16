@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Hasil Pemesanan Barang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Navigasi */
+        nav {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            padding: 0 20px;
+        }
+
+        nav span {
+            font-weight: bold;
+        }
+
+        /* Layout */
+        .wrapper {
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Kolom Kiri - Gambar Silang */
+        .left-col {
+            width: 220px;
+        }
+
+        .image-placeholder {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .image-placeholder::before,
+        .image-placeholder::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: 1px solid #000;
+        }
+
+        .image-placeholder::before {
+            transform: rotate(45deg);
+        }
+
+        .image-placeholder::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Kolom Kanan - Data Hasil */
+        .right-col {
+            flex: 1;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .label {
+            width: 160px;
+            font-weight: bold;
+        }
+
+        .value {
+            flex: 1;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 6px;
+            border: 2px solid #000;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .select-input {
+            width: 200px;
+            padding: 6px;
+            border: 2px solid #000;
+            font-size: 14px;
+        }
+
+        .checkbox-group {
+            margin-left: 160px;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: green;
+            font-weight: bold;
+        }
+
+        .checkbox-group input {
+            accent-color: green;
+        }
+
+        /* Tombol */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-pay {
+            background-color: #008000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 8px 25px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigasi -->
+        <nav>
+            <a href="#">Home</a> <span>|</span>
+            <a href="#">Register</a> <span>|</span>
+            <a href="#">Policy</a> <span>|</span>
+            <a href="#">About</a>
+        </nav>
+
+        <div class="wrapper">
+            <!-- Kolom Kiri -->
+            <div class="left-col">
+                <div class="image-placeholder"></div>
+            </div>
+
+            <!-- Kolom Kanan -->
+            <div class="right-col">
+                <div class="row">
+                    <div class="label">Title Here :</div>
+                    <div class="value">MacBook Air £800</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Description :</div>
+                    <div class="value">
+                        Year : 2009<br><br>
+                        Model :<br><br>
+                        Condition : Mint
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 15px;">
+                    <div class="label">Total Amount :</div>
+                    <div class="value">£800</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Pay to :</div>
+                    <div class="value">123-456-789-0</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Payment Type :</div>
+                    <div class="value">
+                        <select class="select-input">
+                            <option selected>Visa Debit</option>
+                            <option>MasterCard</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Account Holder :</div>
+                    <div class="value">
+                        <input type="text" class="form-input" value="Name Here">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Account No :</div>
+                    <div class="value">
+                        <input type="text" class="form-input" value="123-456-789-0">
+                    </div>
+                </div>
+
+                <div class="checkbox-group" style="margin-top: 10px;">
+                    <input type="checkbox" id="send_phone" checked>
+                    <label for="send_phone">Send to Mobile Phone</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="send_email" checked>
+                    <label for="send_email">Email me copy of transaction</label>
+                </div>
+
+                <div class="row" style="margin-top: 15px;">
+                    <div class="label">Send to Mobile Phone :</div>
+                    <div class="value">
+                        <input type="text" class="form-input" value="1234567890, 1234567891">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Send to Email :</div>
+                    <div class="value">
+                        <input type="text" class="form-input" value="mfmm2g13@soton.ac.uk, fys_06@yahoo.com">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tombol Bawah -->
+        <div class="btn-container">
+            <button type="button" class="btn-pay">Pay using QuidLink</button>
+        </div>
+    </div>
+
+</body>
+</html>
