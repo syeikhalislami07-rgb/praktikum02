@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Barang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Navigation Bar */
+        nav {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            padding: 0 15px;
+        }
+
+        nav span {
+            font-weight: bold;
+        }
+
+        /* Form Layout */
+        .form-wrapper {
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Left Column - Image & Upload */
+        .left-col {
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-placeholder {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            position: relative;
+            background-color: #fff;
+            margin-bottom: 15px;
+        }
+
+        /* X line across image box like wireframe */
+        .image-placeholder::before,
+        .image-placeholder::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: 1px solid #000;
+        }
+
+        .image-placeholder::before {
+            transform: rotate(45deg);
+        }
+
+        .image-placeholder::after {
+            transform: rotate(-45deg);
+        }
+
+        .btn-upload {
+            padding: 5px 15px;
+            border: 2px solid #000;
+            background-color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Right Column - Inputs */
+        .right-col {
+            flex: 1;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            width: 160px;
+            font-weight: bold;
+            font-size: 14px;
+            padding-top: 4px;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group select {
+            flex: 1;
+            padding: 6px;
+            border: 2px solid #000;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-group select,
+        .form-group input[type="number"] {
+            width: 80px;
+        }
+
+        .checkbox-group {
+            margin-left: 160px;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: green;
+            font-weight: bold;
+        }
+
+        .checkbox-group input {
+            accent-color: green;
+        }
+
+        .note {
+            font-size: 11px;
+            margin-top: 2px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Submit Button */
+        .btn-submit-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-submit {
+            background-color: #008000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 8px 25px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation Menu -->
+        <nav>
+            <a href="#">Home</a> <span>|</span>
+            <a href="#">Generate Link</a> <span>|</span>
+            <a href="#">Transaction History</a> <span>|</span>
+            <a href="#">Policy</a> <span>|</span>
+            <a href="#">Logout</a>
+        </nav>
+
+        <!-- Main Form -->
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div class="form-wrapper">
+                
+                <!-- Left Column: Picture Box & Upload -->
+                <div class="left-col">
+                    <div class="image-placeholder"></div>
+                    <label for="picture" class="btn-upload">Upload Picture</label>
+                    <input type="file" id="picture" name="picture" style="display: none;">
+                </div>
+
+                <!-- Right Column: Input Fields -->
+                <div class="right-col">
+                    
+                    <div class="form-group">
+                        <label for="title">Title Here :</label>
+                        <input type="text" id="title" name="title" value="MacBook Air £800">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description :</label>
+                        <textarea id="description" name="description">Year : 2009&#10;&#10;Model :&#10;&#10;Condition : Mint</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="account_number">Account Number :</label>
+                        <input type="text" id="account_number" name="account_number" value="123-456-789-0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bank">Bank :</label>
+                        <select id="bank" name="bank">
+                            <option value="HSBC" selected>HSBC</option>
+                            <option value="BCA">BCA</option>
+                            <option value="Mandiri">Mandiri</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="account_holder">Account Holder :</label>
+                        <input type="text" id="account_holder" name="account_holder" value="Name Here">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 2px;">
+                        <label for="transaction">Transaction :</label>
+                        <input type="number" id="transaction" name="transaction" value="1" min="1">
+                    </div>
+
+                    <span class="note" style="margin-left: 160px;">* if the transaction is for 3 person, choose 3 from the drop-down list</span>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="send_phone" name="send_phone" checked>
+                        <label for="send_phone">Send to Mobile Phone</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="send_email" name="send_email" checked>
+                        <label for="send_email">Send to Email</label>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label for="mobile_phone">Send to Mobile Phone :</label>
+                        <input type="text" id="mobile_phone" name="mobile_phone" value="1234567890, 1234567891">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Send to Email :</label>
+                        <input type="text" id="email" name="email" value="mfmm2g13@soton.ac.uk, fys_06@yahoo.com">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Button -->
+            <div class="btn-submit-container">
+                <button type="submit" class="btn-submit">Generate Nabr Link</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
